@@ -4,6 +4,7 @@
 """
 import cmd
 import ast
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
@@ -11,8 +12,6 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
-from models import storage
-from pprint import pprint
 
 
 class HBNBCommand(cmd.Cmd):
@@ -52,6 +51,7 @@ class HBNBCommand(cmd.Cmd):
                     arg = parse((hbnb[1])[8:-1])
                     try:
                         del storage.all()["<{}>.{}".format(hbnb[0], arg)]
+                        globals()[hbnb[0]].inst -= 1
                         storage.save()
                     except KeyError:
                         print("** no instance found **")
@@ -160,6 +160,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 del storage.all()["<{}>.{}".format(cmd_args[0], cmd_args[1])]
+                globals()[cmd_args[0]].inst -= 1
                 storage.save()
             except KeyError:
                 print("** no instance found **")
