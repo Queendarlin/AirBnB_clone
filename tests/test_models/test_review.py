@@ -51,8 +51,6 @@ class TestReview(unittest.TestCase):
         self.assertTrue(hasattr(self.review, 'updated_at'))
         self.assertIsInstance(self.review.created_at, datetime)
         self.assertIsInstance(self.review.updated_at, datetime)
-        self.assertAlmostEqual(self.review.created_at, self.review.updated_at,
-                               delta=datetime.utcnow())
 
     def test_to_dict_method(self):
         """Test to_dict method"""

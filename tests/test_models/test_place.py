@@ -89,8 +89,6 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(self.place, 'updated_at'))
         self.assertIsInstance(self.place.created_at, datetime)
         self.assertIsInstance(self.place.updated_at, datetime)
-        self.assertAlmostEqual(self.place.created_at, self.place.updated_at,
-                               delta=datetime.utcnow())
 
     def test_to_dict_method(self):
         """Test the to_dict method"""

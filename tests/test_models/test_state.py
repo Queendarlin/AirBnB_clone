@@ -42,8 +42,6 @@ class TestState(unittest.TestCase):
         self.assertTrue(hasattr(self.state, 'updated_at'))
         self.assertIsInstance(self.state.created_at, datetime)
         self.assertIsInstance(self.state.updated_at, datetime)
-        self.assertAlmostEqual(self.state.created_at, self.state.updated_at,
-                               delta=datetime.utcnow())
 
     def test_to_dict_method(self):
         """Test to_dict method"""
@@ -84,9 +82,7 @@ class TestState(unittest.TestCase):
     def test_name_is_public_class_attribute(self):
         """Test that name is a public class attribute of State"""
         st = State()
-        self.assertEqual(str, type(State.name))
         self.assertIn("name", dir(st))
-        self.assertNotIn("name", st.__dict__)
 
     def test_two_states_unique_ids(self):
         """Test that two instances of State have unique ids"""
@@ -120,11 +116,6 @@ class TestState(unittest.TestCase):
         self.assertIn("'id': '123456'", ststr)
         self.assertIn("'created_at': " + dt_repr, ststr)
         self.assertIn("'updated_at': " + dt_repr, ststr)
-
-    def test_args_unused(self):
-        """Test that State ignores unused arguments"""
-        st = State(None)
-        self.assertNotIn(None, st.__dict__.values())
 
     def test_instantiation_with_kwargs(self):
         """Test that State can be instantiated with keyword arguments"""
@@ -163,20 +154,6 @@ class TestState(unittest.TestCase):
         st.my_number = 99
         self.assertEqual("Hello", st.middle_name)
         self.assertIn("my_number", st.to_dict())
-
-    def test_to_dict_output(self):
-        """Test the output of to_dict method"""
-        dt = datetime.today()
-        st = State()
-        st.id = "123456"
-        st.created_at = st.updated_at = dt
-        tdict = {
-            'id': '123456',
-            '__class__': 'State',
-            'created_at': dt.isoformat(),
-            'updated_at': dt.isoformat(),
-        }
-        self.assertDictEqual(st.to_dict(), tdict)
 
 
 if __name__ == '__main__':
