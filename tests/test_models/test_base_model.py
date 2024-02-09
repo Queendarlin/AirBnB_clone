@@ -5,8 +5,10 @@ Test module for BaseModel class
 
 from time import sleep
 import unittest
-from models.base_model import BaseModel
 from datetime import datetime
+import sys
+sys.path.append("../../")
+from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):

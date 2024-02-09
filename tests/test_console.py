@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """Test module for HBNBCommand class"""
 
-import sys
 import unittest
 from unittest.mock import patch, MagicMock
 from io import StringIO
-from AirBnB_clone import console
+import sys
+sys.path.append("..")
 from console import HBNBCommand
 
 

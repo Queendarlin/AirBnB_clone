@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """Test module for Review class"""
 
-from models.base_model import BaseModel
 import unittest
-from models.review import Review
 from datetime import datetime
+import sys
+sys.path.append("../../")
+from models.review import Review
+from models.base_model import BaseModel
 
 
 class TestReview(unittest.TestCase):

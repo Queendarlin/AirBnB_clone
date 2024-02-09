@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """Test module for City class"""
 
-from models.base_model import BaseModel
 import unittest
-from models.city import City
 from datetime import datetime
-
+import sys
+sys.path.append("../../")
+from models.base_model import BaseModel
+from models.city import City
 
 class TestCity(unittest.TestCase):
 

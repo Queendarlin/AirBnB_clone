@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """Test Module for State"""
 
-from models.base_model import BaseModel
-from models.state import State
 from datetime import datetime
 import unittest
-import models
 from time import sleep
+import sys
+sys.path.append("../../")
+import models
+from models.base_model import BaseModel
+from models.state import State
 
 
 class TestState(unittest.TestCase):
