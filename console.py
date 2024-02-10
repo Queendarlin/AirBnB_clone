@@ -46,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
                 if (hbnb[1])[-1] == ")":
                     arg = parse((hbnb[1])[5:-1])
                     try:
-                        print(storage.all()["<{}>.{}".format(
+                        print(storage.all()["{}.{}".format(
                             hbnb[0], arg)])
                     except KeyError:
                         print("** no instance found **")
@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
                 if (hbnb[1])[-1] == ")":
                     arg = parse((hbnb[1])[8:-1])
                     try:
-                        del storage.all()["<{}>.{}".format(hbnb[0], arg)]
+                        del storage.all()["{}.{}".format(hbnb[0], arg)]
                         globals()[hbnb[0]].inst -= 1
                         storage.save()
                     except KeyError:
@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             try:
-                print(storage.all()["<{}>.{}".format(
+                print(storage.all()["{}.{}".format(
                     cmd_args[0], cmd_args[1])])
             except KeyError:
                 print("** no instance found **")
@@ -183,7 +183,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             try:
-                del storage.all()["<{}>.{}".format(cmd_args[0], cmd_args[1])]
+                del storage.all()["{}.{}".format(cmd_args[0], cmd_args[1])]
                 globals()[cmd_args[0]].inst -= 1
                 storage.save()
             except KeyError:
