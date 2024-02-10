@@ -8,13 +8,12 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from datetime import datetime
+from models.user import User
 
 
 class FileStorage:
     """FileStorage class for serializing instances to a JSON file
-        and deserializing JSON files back to instances
-    """
+        and deserializing JSON files back to instances"""
     __file_path = "file.json"
     __objects = {}
 
@@ -28,20 +27,20 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to the JSON file"""
-    obj_dict = self.__objects
-    serialized_obj = {obj: obj_dict[obj].to_dict() for obj in obj_dict.keys()}
-    with open(self.__file_path, "w") as file:
-        json.dump(serialized_obj, file)
+        serialized_obj = {}
+        for key, value in self.__objects.items():
+            serialized_obj[key] = value.to_dict()
+        with open(self.__file_path, "w") as file:
+            json.dump(serialized_obj, file)
 
-
-def reload(self):
-    """Deserializes the JSON file to __objects"""
-    try:
-        with open(self.__file_path, "r") as file:
-            obj_dict = json.load(file)
-            for key, value in obj_dict.items():
-                class_name = value["__class__"]
-                del value["__class__"]
-                self.new(eval(class_name)(**value))
-    except FileNotFoundError:
-        return
+    def reload(self):
+        """Deserializes the JSON file to __objects"""
+        try:
+            with open(self.__file_path, "r") as file:
+                obj_dict = json.load(file)
+                for key, value in obj_dict.items():
+                    class_name = value["__class__"]
+                    del value["__class__"]
+                    self.new(eval(class_name)(**value))
+        except FileNotFoundError:
+            return
