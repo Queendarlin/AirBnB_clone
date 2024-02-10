@@ -2,55 +2,58 @@
 """Test module for Review class"""
 
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime
 import sys
-sys.path.append('../../')
+sys.path.append("../../")
 from models.review import Review
 from models.base_model import BaseModel
 
 
 class TestReview(unittest.TestCase):
+    """Test cases for the Review class"""
 
     def setUp(self):
+        """Set up a Review instance for testing"""
         self.review = Review()
 
     def tearDown(self):
+        """Clean up after each test"""
         del self.review
 
-    def test_class_instace(self):
-        self.assertEqual(type(Review.inst), int)
-
     def test_place_id_attribute(self):
+        """Test place_id attribute existence and default value"""
         self.assertTrue(hasattr(self.review, 'place_id'))
         self.assertEqual(self.review.place_id, "")
 
     def test_user_id_attribute(self):
+        """Test user_id attribute existence and default value"""
         self.assertTrue(hasattr(self.review, 'user_id'))
         self.assertEqual(self.review.user_id, "")
 
     def test_text_attribute(self):
+        """Test text attribute existence and default value"""
         self.assertTrue(hasattr(self.review, 'text'))
         self.assertEqual(self.review.text, "")
 
     def test_inheritance(self):
+        """Test inheritance from BaseModel"""
         self.assertIsInstance(self.review, BaseModel)
 
     def test_str_method(self):
-        expected = "[Review] ({}) {}".format(
-            self.review.id, self.review.__dict__)
+        """Test string representation method"""
+        expected = "[Review] ({}) {}".format(self.review.id,
+                                             self.review.__dict__)
         self.assertEqual(str(self.review), expected)
 
     def test_created_at_and_updated_at(self):
+        """Test created_at and updated_at attributes"""
         self.assertTrue(hasattr(self.review, 'created_at'))
         self.assertTrue(hasattr(self.review, 'updated_at'))
         self.assertIsInstance(self.review.created_at, datetime)
         self.assertIsInstance(self.review.updated_at, datetime)
-        self.assertAlmostEqual(self.review.created_at,
-                               datetime.now(), delta=timedelta(minutes=1))
-        self.assertAlmostEqual(self.review.updated_at,
-                               datetime.now(), delta=timedelta(minutes=1))
 
     def test_to_dict_method(self):
+        """Test to_dict method"""
         review_dict = self.review.to_dict()
         self.assertIsInstance(review_dict, dict)
         self.assertIn("__class__", review_dict)

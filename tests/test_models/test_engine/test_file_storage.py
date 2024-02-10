@@ -6,7 +6,6 @@ Test cases for FileStorage class
 import os
 import json
 import unittest
-from datetime import datetime
 import sys
 sys.path.append('../../../')
 import models

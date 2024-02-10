@@ -10,6 +10,8 @@ class City(BaseModel):
     Class representing a city object in the database
     """
     inst = 0
+    state_id = ""
+    name = ""
 
     def __init__(self, state_id="", name="", *args, **kwargs):
         """
