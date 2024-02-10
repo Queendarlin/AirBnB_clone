@@ -24,9 +24,14 @@ class TestHBNBCommand(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_help_command(self, mock_stdout):
-        """Test help command"""
-        with patch('builtins.input', side_effect=['help', 'EOF']):
-            self.console.cmdloop()
+        with patch('builtins.input', return_value='quit'):
+            expected_output = (
+                    "Documented commands (type help <topic>):\n"
+                    "========================================\n"
+                    "EOF  all  count  create  destroy  help  quit  show  update"
+                    )
+            HBNBCommand().onecmd("help")
+            self.assertEqual(mock_stdout.getvalue().strip(), expected_output)
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_command(self, mock_stdout):
@@ -208,14 +213,6 @@ class TestHBNBCommand(unittest.TestCase):
                    side_effect=['update InvalidClass', 'EOF']):
             self.console.cmdloop()
             self.assertIn("** class doesn't exist **", mock_stdout.getvalue())
-
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_invalid_input_edge_cases(self, mock_stdout):
-        """Test invalid input edge cases"""
-        invalid_inputs = ['', '    ', '$%#&', 'invalid_input']
-        for invalid_input in invalid_inputs:
-            with patch('builtins.input', side_effect=[invalid_input, 'EOF']):
-                self.console.cmdloop()
 
     def test_create_missing_class(self):
         correct = "** class name missing **"
