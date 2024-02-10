@@ -2,6 +2,7 @@
 """
     Base Model of the hbnb console
 """
+import models
 import cmd
 from uuid import uuid4
 from datetime import datetime

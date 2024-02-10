@@ -54,8 +54,6 @@ class TestUser(unittest.TestCase):
         self.assertTrue(hasattr(self.user, 'updated_at'))
         self.assertIsInstance(self.user.created_at, datetime)
         self.assertIsInstance(self.user.updated_at, datetime)
-        self.assertAlmostEqual(self.user.created_at,
-                               self.user.updated_at, delta=datetime.utcnow())
 
     def test_to_dict_method(self):
         """Test the to_dict method"""

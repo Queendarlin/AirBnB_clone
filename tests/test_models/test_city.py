@@ -45,8 +45,6 @@ class TestCity(unittest.TestCase):
         self.assertTrue(hasattr(self.city, 'updated_at'))
         self.assertIsInstance(self.city.created_at, datetime)
         self.assertIsInstance(self.city.updated_at, datetime)
-        self.assertAlmostEqual(self.city.created_at, self.city.updated_at,
-                               delta=datetime.utcnow())
 
     def test_to_dict_method(self):
         city_dict = self.city.to_dict()

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Test module for Amenity class"""
 
-import unittest
-from datetime import datetime
 import sys
 sys.path.append("../../")
+import unittest
+from datetime import datetime
 from models.base_model import BaseModel
 from models.amenity import Amenity
 
