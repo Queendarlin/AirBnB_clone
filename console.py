@@ -20,12 +20,11 @@ def parse(argument_string):
     curly_brace_content_match = re.search(r"\{(.*?)\}", argument_string)
     bracket_content_match = re.search(r"\[(.*?)\]", argument_string)
 
-<<<<<<< HEAD
     if curly_brace_content_match is None:
         if bracket_content_match is None:
             # No curly braces or brackets found, split on commas
             return [word.strip(",") for word in split(argument_string)]
-=======
+
     def default(self, hbnb):
         """
         Prints an error message when a wrong command is entered.
@@ -103,7 +102,6 @@ def parse(argument_string):
                 self.do_count(hbnb[0])
             else:
                 self.stdout.write('*** Unknown syntax: %s\n' % line)
->>>>>>> 9904b1a9a151f811b5e9d548f27c34c1c23f8099
         else:
             # Brackets found, handle separately
             lexer_output =\
