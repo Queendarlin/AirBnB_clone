@@ -5,7 +5,9 @@ Test module for BaseModel class
 
 from time import sleep
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
+from unittest.mock import patch
+from io import StringIO
 import sys
 sys.path.append("../../")
 from models.base_model import BaseModel
@@ -28,6 +30,30 @@ class TestBaseModel(unittest.TestCase):
         """
         del self.model
 
+    def test_class_instace(self):
+        self.assertEqual(type(BaseModel.inst), int)
+
+    def test_created_at_and_updated_at(self):
+        """
+        Test creation and update timestamps
+        """
+        self.assertTrue(hasattr(self.model, 'created_at'))
+        self.assertTrue(hasattr(self.model, 'updated_at'))
+        self.assertIsInstance(self.model.created_at, datetime)
+        self.assertIsInstance(self.model.updated_at, datetime)
+        self.assertAlmostEqual(self.model.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.model.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_save_method(self, mock_stdout):
+        prev_updated_at = self.model.updated_at
+        self.model.save()
+        self.assertNotEqual(prev_updated_at, self.model.updated_at)
+        self.assertIn("", mock_stdout.getvalue())
+
+
     def test_attributes_existence(self):
         """
         Test existence of id, created_at, and updated_at attributes
@@ -43,15 +69,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(self.model, 'id'))
         self.assertIsNotNone(self.model.id)
         self.assertIsInstance(self.model.id, str)
-
-    def test_created_at_and_updated_at(self):
-        """
-        Test creation and update timestamps
-        """
-        self.assertTrue(hasattr(self.model, 'created_at'))
-        self.assertTrue(hasattr(self.model, 'updated_at'))
-        self.assertIsInstance(self.model.created_at, datetime)
-        self.assertIsInstance(self.model.updated_at, datetime)
 
     def test_str_method(self):
         """
