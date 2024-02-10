@@ -17,6 +17,9 @@ class TestCity(unittest.TestCase):
         del self.city
 
 
+    def test_class_instace(self):
+        self.assertEqual(type(City.inst), int)
+
     def test_state_id_attribute(self):
         self.assertTrue(hasattr(self.city, 'state_id'))
         self.assertEqual(self.city.state_id, "")

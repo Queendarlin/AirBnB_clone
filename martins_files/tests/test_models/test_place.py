@@ -19,6 +19,9 @@ class TestPlace(unittest.TestCase):
         """Clean up after each test"""
         del self.place
 
+    def test_class_instace(self):
+        self.assertEqual(type(Place.inst), int)
+
     def test_created_at_and_updated_at(self):
         """Test created_at and updated_at attributes"""
         self.assertTrue(hasattr(self.place, 'created_at'))

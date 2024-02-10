@@ -30,6 +30,9 @@ class TestBaseModel(unittest.TestCase):
         """
         del self.model
 
+    def test_class_instace(self):
+        self.assertEqual(type(BaseModel.inst), int)
+
     def test_created_at_and_updated_at(self):
         """
         Test creation and update timestamps

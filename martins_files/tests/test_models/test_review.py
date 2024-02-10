@@ -20,6 +20,10 @@ class TestReview(unittest.TestCase):
         """Clean up after each test"""
         del self.review
 
+
+    def test_class_instace(self):
+        self.assertEqual(type(Review.inst), int)
+
     def test_place_id_attribute(self):
         self.assertTrue(hasattr(self.review, 'place_id'))
         self.assertEqual(self.review.place_id, "")
