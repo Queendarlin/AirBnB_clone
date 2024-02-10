@@ -53,7 +53,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(prev_updated_at, self.model.updated_at)
         self.assertIn("", mock_stdout.getvalue())
 
-
     def test_attributes_existence(self):
         """
         Test existence of id, created_at, and updated_at attributes

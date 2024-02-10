@@ -8,14 +8,13 @@ sys.path.append("../../")
 from models.base_model import BaseModel
 from models.city import City
 
-class TestCity(unittest.TestCase):
 
+class TestCity(unittest.TestCase):
     def setUp(self):
         self.city = City()
 
     def tearDown(self):
         del self.city
-
 
     def test_class_instace(self):
         self.assertEqual(type(City.inst), int)
@@ -23,7 +22,6 @@ class TestCity(unittest.TestCase):
     def test_state_id_attribute(self):
         self.assertTrue(hasattr(self.city, 'state_id'))
         self.assertEqual(self.city.state_id, "")
-
 
     def test_created_at_and_updated_at(self):
         self.assertTrue(hasattr(self.city, 'created_at'))
@@ -34,7 +32,6 @@ class TestCity(unittest.TestCase):
                                datetime.now(), delta=timedelta(minutes=1))
         self.assertAlmostEqual(self.city.updated_at,
                                datetime.now(), delta=timedelta(minutes=1))
-
 
     def test_name_attribute(self):
         self.assertTrue(hasattr(self.city, 'name'))
@@ -55,7 +52,6 @@ class TestCity(unittest.TestCase):
     def test_str_method(self):
         expected = "[City] ({}) {}".format(self.city.id, self.city.__dict__)
         self.assertEqual(str(self.city), expected)
-
 
     def test_to_dict_method(self):
         city_dict = self.city.to_dict()

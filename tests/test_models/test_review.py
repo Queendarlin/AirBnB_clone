@@ -20,7 +20,6 @@ class TestReview(unittest.TestCase):
         """Clean up after each test"""
         del self.review
 
-
     def test_class_instace(self):
         self.assertEqual(type(Review.inst), int)
 
