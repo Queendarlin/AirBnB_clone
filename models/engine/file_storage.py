@@ -19,7 +19,7 @@ class FileStorage:
         """
         Returns a dictionary with all saved objects in format {id : object}
         """
-        return (self.__class__.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """
@@ -27,7 +27,7 @@ class FileStorage:
         If the object already exists - updates it.
         The id is generated automatically based on current time.
         """
-        self.__class__.__objects["<{}>.{}".format(
+        FileStorage.__objects["{}.{}".format(
             obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
