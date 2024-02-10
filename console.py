@@ -84,7 +84,25 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     self.stdout.write('*** Unknown syntax: %s\n' % line)
             elif hbnb[1] == "all()":
-                self.do_all(hbnb[0])
+                flag = 1
+                print("[", end="")
+                for obj in storage.all().values():
+                    if isinstance(obj, globals()[hbnb[0]]):
+                        if flag != 1:
+                            print(", ", end="")
+                        print(obj, end="")
+                        flag = 0
+                print("]")
+                # hbnb = hbnb.strip()
+                # obj_list = []
+                # if hbnb in HBNBCommand.__classes:
+                #     for obj in storage.all().values():
+                #         if isinstance(obj, globals()[hbnb]):
+                #             obj_list.append(obj.__str__())
+                #     print(obj_list)
+                # else:
+                #     print("** class doesn't exist **")
+                # self.do_all(hbnb[0])
             elif hbnb[1] == "count()":
                 self.do_count(hbnb[0])
             else:
