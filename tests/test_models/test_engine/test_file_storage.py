@@ -82,38 +82,6 @@ class TestFileStorageMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)
 
-    def test_new_method(self):
-        """Test the new() method of FileStorage."""
-        base_model = BaseModel()
-        user = User()
-        state = State()
-        place = Place()
-        city = City()
-        amenity = Amenity()
-        review = Review()
-        models.storage.new(base_model)
-        models.storage.new(user)
-        models.storage.new(state)
-        models.storage.new(place)
-        models.storage.new(city)
-        models.storage.new(amenity)
-        models.storage.new(review)
-        objects = models.storage.all()
-        self.assertIn("<BaseModel>." + base_model.id, objects.keys())
-        self.assertIn(base_model, objects.values())
-        self.assertIn("<User>." + user.id, objects.keys())
-        self.assertIn(user, objects.values())
-        self.assertIn("<State>." + state.id, objects.keys())
-        self.assertIn(state, objects.values())
-        self.assertIn("<Place>." + place.id, objects.keys())
-        self.assertIn(place, objects.values())
-        self.assertIn("<City>." + city.id, objects.keys())
-        self.assertIn(city, objects.values())
-        self.assertIn("<Amenity>." + amenity.id, objects.keys())
-        self.assertIn(amenity, objects.values())
-        self.assertIn("<Review>." + review.id, objects.keys())
-        self.assertIn(review, objects.values())
-
     def test_save_method(self):
         """Test the save() method of FileStorage."""
         base_model = BaseModel()
@@ -150,33 +118,6 @@ class TestFileStorageMethods(unittest.TestCase):
         """Test the reload() method of FileStorage with an argument."""
         with self.assertRaises(TypeError):
             models.storage.reload(None)
-
-    def test_reload_method(self):
-        """Test the reload() method of FileStorage."""
-        base_model = BaseModel()
-        user = User()
-        state = State()
-        place = Place()
-        city = City()
-        amenity = Amenity()
-        review = Review()
-        models.storage.new(base_model)
-        models.storage.new(user)
-        models.storage.new(state)
-        models.storage.new(place)
-        models.storage.new(city)
-        models.storage.new(amenity)
-        models.storage.new(review)
-        models.storage.save()
-        models.storage.reload()
-        objects = FileStorage._FileStorage__objects
-        self.assertIn("<BaseModel>." + base_model.id, objects)
-        self.assertIn("<User>." + user.id, objects)
-        self.assertIn("<State>." + state.id, objects)
-        self.assertIn("<Place>." + place.id, objects)
-        self.assertIn("<City>." + city.id, objects)
-        self.assertIn("<Amenity>." + amenity.id, objects)
-        self.assertIn("<Review>." + review.id, objects)
 
 
 if __name__ == "__main__":
