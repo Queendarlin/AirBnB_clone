@@ -20,6 +20,9 @@ class TestUser(unittest.TestCase):
         """Clean up after each test method"""
         del self.user
 
+    def test_class_instace(self):
+        self.assertEqual(type(User.inst), int)
+
     def test_created_at_and_updated_at(self):
         """Test the created_at and updated_at attributes"""
         self.assertTrue(hasattr(self.user, 'created_at'))
