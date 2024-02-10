@@ -5,7 +5,7 @@ file and deserializes JSON file to instances
 """
 import json
 from datetime import datetime
-from pprint import pprint
+
 
 class FileStorage:
     """
