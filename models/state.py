@@ -10,6 +10,7 @@ class State(BaseModel):
     Class representing a State object in the database
     """
     inst = 0
+    name = ""
 
     def __init__(self, name="", *args, **kwargs):
         """

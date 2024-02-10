@@ -2,7 +2,7 @@
 """Test module for Place class"""
 
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys
 sys.path.append("../../")
 from models.base_model import BaseModel
@@ -19,6 +19,34 @@ class TestPlace(unittest.TestCase):
         """Clean up after each test"""
         del self.place
 
+    def test_class_instace(self):
+        self.assertEqual(type(Place.inst), int)
+
+    def test_created_at_and_updated_at(self):
+        """Test created_at and updated_at attributes"""
+        self.assertTrue(hasattr(self.place, 'created_at'))
+        self.assertTrue(hasattr(self.place, 'updated_at'))
+        self.assertIsInstance(self.place.created_at, datetime)
+        self.assertIsInstance(self.place.updated_at, datetime)
+        self.assertAlmostEqual(self.place.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.place.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+
+    def test_to_dict_method(self):
+        """Test the to_dict method"""
+        place_dict = self.place.to_dict()
+        self.assertIsInstance(place_dict, dict)
+        self.assertIn("__class__", place_dict)
+        self.assertIn("id", place_dict)
+        self.assertIn("created_at", place_dict)
+        self.assertIn("updated_at", place_dict)
+        self.assertEqual(place_dict['__class__'], 'Place')
+        self.assertEqual(place_dict['id'], self.place.id)
+        self.assertEqual(place_dict['created_at'],
+                         self.place.created_at.isoformat())
+        self.assertEqual(place_dict['updated_at'],
+                         self.place.updated_at.isoformat())
     def test_city_id_attribute(self):
         """Test city_id attribute existence and default value"""
         self.assertTrue(hasattr(self.place, 'city_id'))
@@ -82,28 +110,6 @@ class TestPlace(unittest.TestCase):
         """Test the __str__ method"""
         expected = "[Place] ({}) {}".format(self.place.id, self.place.__dict__)
         self.assertEqual(str(self.place), expected)
-
-    def test_created_at_and_updated_at(self):
-        """Test created_at and updated_at attributes"""
-        self.assertTrue(hasattr(self.place, 'created_at'))
-        self.assertTrue(hasattr(self.place, 'updated_at'))
-        self.assertIsInstance(self.place.created_at, datetime)
-        self.assertIsInstance(self.place.updated_at, datetime)
-
-    def test_to_dict_method(self):
-        """Test the to_dict method"""
-        place_dict = self.place.to_dict()
-        self.assertIsInstance(place_dict, dict)
-        self.assertIn("__class__", place_dict)
-        self.assertIn("id", place_dict)
-        self.assertIn("created_at", place_dict)
-        self.assertIn("updated_at", place_dict)
-        self.assertEqual(place_dict['__class__'], 'Place')
-        self.assertEqual(place_dict['id'], self.place.id)
-        self.assertEqual(place_dict['created_at'],
-                         self.place.created_at.isoformat())
-        self.assertEqual(place_dict['updated_at'],
-                         self.place.updated_at.isoformat())
 
 
 if __name__ == '__main__':

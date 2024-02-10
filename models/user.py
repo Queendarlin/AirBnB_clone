@@ -10,6 +10,10 @@ class User(BaseModel):
     Class representing a User object in the database
     """
     inst = 0
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
 
     def __init__(self, email="", password="", first_name="",
                  last_name="", *args, **kwargs):

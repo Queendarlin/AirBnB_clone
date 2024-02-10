@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Test Module for State"""
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import unittest
 from time import sleep
 import sys
@@ -22,6 +22,20 @@ class TestState(unittest.TestCase):
         """Clean up after each test"""
         del self.state
 
+    def test_class_instace(self):
+        self.assertEqual(type(State.inst), int)
+
+    def test_created_at_and_updated_at(self):
+        """Test created_at and updated_at attributes"""
+        self.assertTrue(hasattr(self.state, 'created_at'))
+        self.assertTrue(hasattr(self.state, 'updated_at'))
+        self.assertIsInstance(self.state.created_at, datetime)
+        self.assertIsInstance(self.state.updated_at, datetime)
+        self.assertAlmostEqual(self.state.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.state.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+
     def test_name_attribute(self):
         """Test name attribute existence and default value"""
         self.assertTrue(hasattr(self.state, 'name'))
@@ -35,13 +49,6 @@ class TestState(unittest.TestCase):
         """Test string representation method"""
         expected = "[State] ({}) {}".format(self.state.id, self.state.__dict__)
         self.assertEqual(str(self.state), expected)
-
-    def test_created_at_and_updated_at(self):
-        """Test created_at and updated_at attributes"""
-        self.assertTrue(hasattr(self.state, 'created_at'))
-        self.assertTrue(hasattr(self.state, 'updated_at'))
-        self.assertIsInstance(self.state.created_at, datetime)
-        self.assertIsInstance(self.state.updated_at, datetime)
 
     def test_to_dict_method(self):
         """Test to_dict method"""
