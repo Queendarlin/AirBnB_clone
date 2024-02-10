@@ -10,6 +10,7 @@ class Amenity(BaseModel):
     Amenity Class that inheritrs from BaseModel
     """
     inst = 0
+    name = ""
 
     def __init__(self, name="", *args, **kwargs):
         """
