@@ -2,7 +2,7 @@
 """Test module for City class"""
 
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys
 sys.path.append("../../")
 from models.base_model import BaseModel
@@ -16,9 +16,25 @@ class TestCity(unittest.TestCase):
     def tearDown(self):
         del self.city
 
+
+    def test_class_instace(self):
+        self.assertEqual(type(City.inst), int)
+
     def test_state_id_attribute(self):
         self.assertTrue(hasattr(self.city, 'state_id'))
         self.assertEqual(self.city.state_id, "")
+
+
+    def test_created_at_and_updated_at(self):
+        self.assertTrue(hasattr(self.city, 'created_at'))
+        self.assertTrue(hasattr(self.city, 'updated_at'))
+        self.assertIsInstance(self.city.created_at, datetime)
+        self.assertIsInstance(self.city.updated_at, datetime)
+        self.assertAlmostEqual(self.city.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.city.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+
 
     def test_name_attribute(self):
         self.assertTrue(hasattr(self.city, 'name'))
@@ -40,11 +56,6 @@ class TestCity(unittest.TestCase):
         expected = "[City] ({}) {}".format(self.city.id, self.city.__dict__)
         self.assertEqual(str(self.city), expected)
 
-    def test_created_at_and_updated_at(self):
-        self.assertTrue(hasattr(self.city, 'created_at'))
-        self.assertTrue(hasattr(self.city, 'updated_at'))
-        self.assertIsInstance(self.city.created_at, datetime)
-        self.assertIsInstance(self.city.updated_at, datetime)
 
     def test_to_dict_method(self):
         city_dict = self.city.to_dict()

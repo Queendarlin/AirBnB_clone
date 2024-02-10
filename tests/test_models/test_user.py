@@ -2,7 +2,7 @@
 """Test module for User class"""
 
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys
 sys.path.append("../../")
 from models.user import User
@@ -19,6 +19,20 @@ class TestUser(unittest.TestCase):
     def tearDown(self):
         """Clean up after each test method"""
         del self.user
+
+    def test_class_instace(self):
+        self.assertEqual(type(User.inst), int)
+
+    def test_created_at_and_updated_at(self):
+        """Test the created_at and updated_at attributes"""
+        self.assertTrue(hasattr(self.user, 'created_at'))
+        self.assertTrue(hasattr(self.user, 'updated_at'))
+        self.assertIsInstance(self.user.created_at, datetime)
+        self.assertIsInstance(self.user.updated_at, datetime)
+        self.assertAlmostEqual(self.user.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.user.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
 
     def test_email_attribute(self):
         """Test the email attribute"""
@@ -47,13 +61,6 @@ class TestUser(unittest.TestCase):
         """Test the __str__ method"""
         expected = "[User] ({}) {}".format(self.user.id, self.user.__dict__)
         self.assertEqual(str(self.user), expected)
-
-    def test_created_at_and_updated_at(self):
-        """Test the created_at and updated_at attributes"""
-        self.assertTrue(hasattr(self.user, 'created_at'))
-        self.assertTrue(hasattr(self.user, 'updated_at'))
-        self.assertIsInstance(self.user.created_at, datetime)
-        self.assertIsInstance(self.user.updated_at, datetime)
 
     def test_to_dict_method(self):
         """Test the to_dict method"""

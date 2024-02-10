@@ -4,7 +4,7 @@
 import sys
 sys.path.append("../../")
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 from models.base_model import BaseModel
 from models.amenity import Amenity
 
@@ -25,6 +25,66 @@ class TestAmenity(unittest.TestCase):
         Tear down method to delete the instance of Amenity after each test.
         """
         del self.amenity
+
+    def test_name_attribute(self):
+        """
+        Method documentation fo this method of a class
+        """
+        self.assertTrue(hasattr(self.amenity, 'name'))
+        self.assertEqual(self.amenity.name, "")
+
+    def test_class_instace(self):
+        """
+        Method documentation fo this method of a class
+        """
+        self.assertTrue(hasattr(self.amenity, 'name'))
+        self.assertEqual(type(Amenity.inst), int)
+
+    def test_str_method(self):
+        """
+        Method documentation fo this method of a class
+        """
+        expected = "[Amenity] ({}) {}".format(
+            self.amenity.id, self.amenity.__dict__)
+        self.assertEqual(str(self.amenity), expected)
+
+    def test_to_dict_methd(self):
+        """
+        Method documentation fo this method of a class
+        """
+        amenity_dict = self.amenity.to_dict()
+        expected_dict = {
+            '__class__': 'Amenity',
+            'id': self.amenity.id,
+            'created_at': self.amenity.created_at.isoformat(),
+            'updated_at': self.amenity.updated_at.isoformat(),
+            'name': ''
+        }
+        self.assertEqual(self.amenity.to_dict(), expected_dict)
+        self.assertIsInstance(amenity_dict, dict)
+        self.assertIn("__class__", amenity_dict)
+        self.assertIn("id", amenity_dict)
+        self.assertIn("created_at", amenity_dict)
+        self.assertIn("updated_at", amenity_dict)
+        self.assertEqual(amenity_dict['__class__'], 'Amenity')
+        self.assertEqual(amenity_dict['id'], self.amenity.id)
+        self.assertEqual(amenity_dict['created_at'],
+                         self.amenity.created_at.isoformat())
+        self.assertEqual(amenity_dict['updated_at'],
+                         self.amenity.updated_at.isoformat())
+
+    def test_created_at_and_updated_at(self):
+        """
+        Method documentation fo this method of a class
+        """
+        self.assertTrue(hasattr(self.amenity, 'created_at'))
+        self.assertTrue(hasattr(self.amenity, 'updated_at'))
+        self.assertIsInstance(self.amenity.created_at, datetime)
+        self.assertIsInstance(self.amenity.updated_at, datetime)
+        self.assertAlmostEqual(self.amenity.created_at,
+                               datetime.now(), delta=timedelta(minutes=1))
+        self.assertAlmostEqual(self.amenity.updated_at,
+                               datetime.now(), delta=timedelta(minutes=1))
 
     def test_attributes_existence(self):
         """
