@@ -9,13 +9,5 @@ class Amenity(BaseModel):
     """
     Amenity Class that inheritrs from BaseModel
     """
-    inst = 0
+    # inst = 0
     name = ""
-
-    def __init__(self, name="", *args, **kwargs):
-        """
-        Initialize a new instance of the Amenity class.
-        """
-        super().__init__(*args, **kwargs)
-        self.name = name
-        Amenity.inst += 1

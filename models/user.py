@@ -9,20 +9,8 @@ class User(BaseModel):
     """
     Class representing a User object in the database
     """
-    inst = 0
+    # inst = 0
     email = ""
     password = ""
     first_name = ""
     last_name = ""
-
-    def __init__(self, email="", password="", first_name="",
-                 last_name="", *args, **kwargs):
-        """
-        Initialize a new instance of the User class
-        """
-        super().__init__(*args, **kwargs)
-        self.email = email
-        self.password = password
-        self.first_name = first_name
-        self.last_name = last_name
-        User.inst += 1
