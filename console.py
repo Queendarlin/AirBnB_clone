@@ -2,6 +2,7 @@
 """
     contains the entry point of the command interpreter:
 """
+import sys
 import cmd
 import ast
 import models
@@ -24,6 +25,9 @@ class HBNBCommand(cmd.Cmd):
     __classes = ["BaseModel", "User", "Place",
                  "State", "City", "Amenity", "Review"]
 
+    def __init__(self, stdout=None, stdin=None):
+        super(HBNBCommand, self).__init__(stdout=stdout, stdin=stdin)
+
     def emptyline(self):
         """
         Overridden from Cmd base class to ignore empty lines.
@@ -34,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints an error message when a wrong command is entered.
         """
+        print("line: ", hbnb)
         line = hbnb
         hbnb = hbnb.split(".", 1)
         if hbnb[0] in HBNBCommand.__classes:
@@ -46,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
                     except KeyError:
                         print("** no instance found **")
                 else:
-                    self.stdout.write('*** Unknown syntax: %s\n' % line)
+                    self.stdout.write('*** Unknown syntax1: %s\n' % line)
             elif hbnb[1].startswith("destroy("):
                 if (hbnb[1])[-1] == ")":
                     arg = parse((hbnb[1])[8:-1])
@@ -57,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
                     except KeyError:
                         print("** no instance found **")
                 else:
-                    self.stdout.write('*** Unknown syntax: %s\n' % line)
+                    self.stdout.write('*** Unknown syntax2: %s\n' % line)
             elif hbnb[1].startswith("update("):
                 if (hbnb[1])[-1] == ")":
                     arg = to_list(parse((hbnb[1])[6:]))
@@ -82,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         print("** no instance found **")
                 else:
-                    self.stdout.write('*** Unknown syntax: %s\n' % line)
+                    self.stdout.write('*** Unknown syntax3: %s\n' % line)
             elif hbnb[1] == "all()":
                 flag = 1
                 print("[", end="")
@@ -106,9 +111,9 @@ class HBNBCommand(cmd.Cmd):
             elif hbnb[1] == "count()":
                 self.do_count(hbnb[0])
             else:
-                self.stdout.write('*** Unknown syntax: %s\n' % line)
+                self.stdout.write('*** Unknown syntax4: %s\n' % line)
         else:
-            self.stdout.write('*** Unknown syntax: %s\n' % line)
+            self.stdout.write('*** Unknown syntax5: %s\n' % line)
 
     def do_EOF(self, hbnb):
         """

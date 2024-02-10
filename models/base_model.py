@@ -9,7 +9,7 @@ from datetime import datetime
 from models import storage
 
 
-class BaseModel(cmd.Cmd):
+class BaseModel():
     """
     This is a base class for handling commands in the HBNB Console
     """
