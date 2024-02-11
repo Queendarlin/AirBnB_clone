@@ -7,6 +7,7 @@ import json
 from datetime import datetime
 from pprint import pprint
 
+
 class FileStorage:
     """
     A class that provides methods for saving objects as JSON files,
