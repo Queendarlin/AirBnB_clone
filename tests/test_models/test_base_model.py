@@ -30,6 +30,9 @@ class TestBaseModel(unittest.TestCase):
         """
         del self.model
 
+    def test_class_instace(self):
+        self.assertEqual(type(BaseModel.inst), int)
+
     def test_created_at_and_updated_at(self):
         """
         Test creation and update timestamps
@@ -49,6 +52,7 @@ class TestBaseModel(unittest.TestCase):
         self.model.save()
         self.assertNotEqual(prev_updated_at, self.model.updated_at)
         self.assertIn("", mock_stdout.getvalue())
+
 
     def test_attributes_existence(self):
         """

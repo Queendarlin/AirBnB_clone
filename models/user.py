@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-"""Module for User class"""
-
+"""
+Module Containing User Class from BaseModel
+"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """User class that inherits from BaseModel"""
+    """
+    Class representing a User object in the database
+    """
+    # inst = 0
     email = ""
     password = ""
     first_name = ""

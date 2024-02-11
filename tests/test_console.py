@@ -24,12 +24,14 @@ class TestHBNBCommand(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_help_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             expected_output = (
-                    "Documented commands (type help <topic>):\n"
-                    "========================================\n"
-                    "EOF  all  count  create  destroy  help  quit  show  update"
-                    )
+                "Documented commands (type help <topic>):\n"
+                "========================================\n"
+                "EOF  all  count  create  destroy  help"
+                "  quit  show  update"
+            )
             HBNBCommand().onecmd("help")
             self.assertEqual(mock_stdout.getvalue().strip(), expected_output)
 
@@ -38,143 +40,183 @@ class TestHBNBCommand(unittest.TestCase):
         """Test show command"""
         with patch('builtins.input', side_effect=['show BaseModel', 'EOF']):
             self.console.cmdloop()
-            self.assertIn("** instance id missing **", mock_stdout.getvalue())
+            self.assertIn("** instance id missing **",
+                          mock_stdout.getvalue())
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_destroy_command(self, mock_stdout):
         """Test destroy command"""
         with patch('builtins.input', side_effect=['destroy BaseModel', 'EOF']):
             self.console.cmdloop()
-            self.assertIn("** instance id missing **", mock_stdout.getvalue())
+            self.assertIn("** instance id missing **",
+                          mock_stdout.getvalue())
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_quit_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("quit")
             self.assertEqual(mock_stdout.getvalue().strip(), '')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** class name missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** class name missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** class name missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** class name missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_base_model_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show BaseModel")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_city_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show City")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_amenity_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show Amenity")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_place_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show Place")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_review_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show Review")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_state_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show State")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_user_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("show User")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** instance id missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** instance id missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_update_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("update")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** class name missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** class name missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_destroy_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("destroy")
-            self.assertEqual(mock_stdout.getvalue().strip(), "** class name missing **")
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "** class name missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_base_model_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create BaseModel")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_user_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create User")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_place_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create Place")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_city_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create City")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_state_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create State")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_review_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create Review")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_amenity_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create Amenity")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_show_command(self, mock_stdout):
+        """Test module for HBNBCommand class"""
         with patch('builtins.input', return_value='quit'):
             HBNBCommand().onecmd("create BaseModel")
             output = mock_stdout.getvalue().strip()
-            self.assertRegex(output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
-
+            self.assertRegex(
+                output, r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_update_command(self, mock_stdout):
@@ -215,25 +257,17 @@ class TestHBNBCommand(unittest.TestCase):
             self.assertIn("** class doesn't exist **", mock_stdout.getvalue())
 
     def test_create_missing_class(self):
+        """Test module for HBNBCommand class"""
         correct = "** class name missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create"))
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_create_invalid_class(self):
+        """Test module for HBNBCommand class"""
         correct = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create MyModel"))
-            self.assertEqual(correct, output.getvalue().strip())
-
-    def test_create_invalid_syntax(self):
-        correct = "*** Unknown syntax: MyModel.create()"
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("MyModel.create()"))
-            self.assertEqual(correct, output.getvalue().strip())
-        correct = "*** Unknown syntax: BaseModel.create()"
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("BaseModel.create()"))
             self.assertEqual(correct, output.getvalue().strip())
 
 

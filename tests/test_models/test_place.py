@@ -8,7 +8,6 @@ sys.path.append("../../")
 from models.base_model import BaseModel
 from models.place import Place
 
-
 class TestPlace(unittest.TestCase):
     """Test cases for the Place class"""
 
@@ -19,6 +18,9 @@ class TestPlace(unittest.TestCase):
     def tearDown(self):
         """Clean up after each test"""
         del self.place
+
+    def test_class_instace(self):
+        self.assertEqual(type(Place.inst), int)
 
     def test_created_at_and_updated_at(self):
         """Test created_at and updated_at attributes"""
@@ -45,7 +47,6 @@ class TestPlace(unittest.TestCase):
                          self.place.created_at.isoformat())
         self.assertEqual(place_dict['updated_at'],
                          self.place.updated_at.isoformat())
-
     def test_city_id_attribute(self):
         """Test city_id attribute existence and default value"""
         self.assertTrue(hasattr(self.place, 'city_id'))

@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Module for State class"""
-
+"""
+Module Containing State Class from BaseModel
+"""
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """State class and the attributes"""
+    """
+    Class representing a State object in the database
+    """
+    # inst = 0
     name = ""
