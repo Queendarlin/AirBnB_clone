@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBnB Clone</title>
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/100-places.css">
+    <link rel="icon" href="images/icon.png">
+  </head>
+
+  <body>
+    <!-- Header section -->
+    <header>
+      <div class="logo"></div>
+    </header>
+
+    <!-- Main container -->
+    <div class="container">
+      <!-- Filters section -->
+      <section class="filters">
+        <button>Search</button>
+        <!-- Locations filter -->
+        <div class="locations">
+          <h3>States</h3>
+          <h4>California, Arizona...</h4>
+          <ul class="popover">
+            <li>
+              <h2>Arizona:</h2>
+              <ul>
+                <li>Phonix</li>
+                <li>Mesa</li>
+              </ul>
+            </li>
+            <li>
+              <h2>California:</h2>
+              <ul>
+                <li>San Francisco</li>
+                <li>Los Altos</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- Amenities filter -->
+        <div class="amenities">
+          <h3>Amenities</h3>
+          <h4>Internet, Kitchen...</h4>
+          <ul class="popover">
+            <li>Internet</li>
+            <li>TV</li>
+            <li>Kitchen</li>
+            <li>Iron</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Places section -->
+      <section class="places">
+        <h1>Places</h1>
+        <!-- First place article -->
+        <article>
+            <!-- Article header -->
+            <div class="article_places_header">
+                <h2>My Home</h2>
+                <div class="price_by_night">$100</div>
+            </div>
+            <!-- Information section -->
+            <div class="information">
+                <div class="max_guest">
+                    <div class="guest_image"></div>
+                    <p>5 Guests</p>
+                </div>
+                <div class="number_rooms">
+                    <div class="bed_image"></div>
+                    <p>6 Bedroom</p>
+                  </div>
+                  <div class="number_bathrooms">
+                    <div class="bath_image"></div>
+                    <p>4 Bathroom</p>
+                  </div>
+                </div>
+                <!-- User section -->
+                <div class="user">
+                  <p><b>Owner: </b>John Doe</p>
+                </div>
+                <!-- Description section -->
+                <div class="description">
+                  <p>
+                    Welcome to our cozy home! Enjoy a comfortable stay in our well-furnished apartment located in the heart of the city. Close to all amenities and attractions, it's the perfect choice for your next vacation. Relax in our spacious living room, cook a delicious meal in our fully-equipped kitchen, and unwind in our comfortable bedrooms. Book now and make unforgettable memories!
+                  </p>
+                </div>
+                <!-- Amenities section -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                      <li>
+                        <div class="places_amenities_pet_friendly"></div>
+                        Pet friendly
+                    </li>
+                      <li>
+                        <div class="places_amenities_tv"></div>
+                        Tv
+                    </li>
+                      <li>
+                        <div class="places_amenities_wifi"></div>
+                        Wifi
+                    </li>
+                    </ul>
+                  </div>
+                  <!-- Reviews section -->
+                  <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                      <li>
+                        <h3>From Bob Dylan the 19th February 2024</h3>
+                        <p>Our stay at this wonderful place was absolutely delightful. </p>
+                      </li>
+                      <li>
+                        <h3>From Connor 4th August 2024</h3>
+                        <p>We recommend this place to anyone looking for a relaxing getaway.</p>
+                      </li>
+                    </ul>
+                </div>
+              </article>
+
+              <!-- Second place article -->
+              <article>
+                <h2>Tiny house</h2>
+                <div class="price_by_night">
+                  <p>$50</p>
+                </div>
+                <div class="information">
+                  <div class="max_guest">
+                    <div class="guest_image"></div>
+                    <p>7 Guests</p>
+                  </div>
+                  <div class="number_rooms">
+                    <div class="bed_image"></div>
+                    <p>6 Bedrooms</p>
+                  </div>
+                  <div class="number_bathrooms">
+                    <div class="bath_image"></div>
+                    <p>5 Bathrooms</p>
+                  </div>
+                </div>
+                <div class="user">
+                  <p><b>Owner: </b>Jane Doe</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Our charming villa offers a peaceful retreat in a beautiful countryside setting. Surrounded by lush greenery and stunning views, it's the ideal place to escape the hustle and bustle of city life. Indulge in leisurely walks through the scenic trails, soak up the sunshine by the poolside, and savor delicious meals prepared in our gourmet kitchen. Experience serenity and relaxation at our home away from home!
+                  </p>
+            </div>
+            <div class="amenities">
+                <h2>Amenities</h2>
+                <ul>
+                  <li>
+                    <div class="places_amenities_pet_friendly"></div>
+                    Pet friendly
+                </li>
+                </ul>
+              </div>
+              <div class="reviews">
+                <h2>2 Reviews</h2>
+                <ul>
+                  <li>
+                    <h3>From Max the 15th August 2022</h3>
+                    <p>The amenities provided exceeded our expectations. We enjoyed every moment of our vacation.</p>
+                  </li>
+                  <li>
+                    <h3>From Connor 4th August 2022</h3>
+                    <p>The cozy atmosphere and attention to detail made us feel right at home. The host was incredibly accommodating, and the amenities provided exceeded our expectations.</p>
+                  </li>
+                </ul>
+              </div>
+        </article>
+
+        <!-- Third place article -->
+        <article>
+            <h2>A suite</h2>
+            <div class="price_by_night">
+              <p>$250</p>
+            </div>
+            <div class="information">
+              <div class="max_guest">
+                <div class="guest_image"></div>
+                <p>7 Guests</p>
+              </div>
+              <div class="number_rooms">
+                <div class="bed_image"></div>
+                <p>6 Bedroom</p>
+              </div>
+              <div class="number_bathrooms">
+                <div class="bath_image"></div>
+                <p>4 Bathroom</p>
+              </div>
+            </div>
+            <div class="user">
+              <p><b>Owner: </b>Jack Bauer</p>
+            </div>
+            <div class="description">
+              <p>
+                Welcome to our cozy beachfront cottage! With panoramic ocean views and direct access to the sandy shores, our property is the perfect getaway for beach lovers. Spend your days lounging on the deck, listening to the soothing sound of waves, or exploring the nearby coastal attractions. Whether you're seeking adventure or relaxation, our cottage offers the ideal coastal retreat for unforgettable memories with family and friends.
+              </p>
+            </div>
+            <div class="amenities">
+                <h2>Amenities</h2>
+                <ul>
+                  <li>
+                    <div class="places_amenities_pet_friendly"></div>
+                    Pet friendly
+                </li>
+                  <li>
+                    <div class="places_amenities_tv"></div>
+                    Tv
+                </li>
+                  <li>
+                    <div class="places_amenities_wifi"></div>
+                    Wifi
+                </li>
+                </ul>
+              </div>
+              <div class="reviews">
+                <h2>1 Review</h2>
+                <ul>
+                  <li>
+                    <h3>From Ammy Sylvan the 15th August, 2022</h3>
+                    <p>The location was perfect, offering breathtaking views of the surrounding landscape.</p>
+                  </li>
+                </ul>
+              </div>
+          </article>
+      </section>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+      <p>Best School</p>
+    </footer>
+
+  </body>
+</html>

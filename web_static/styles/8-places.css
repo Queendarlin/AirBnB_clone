@@ -1,0 +1,123 @@
+/* Styles for the container holding the places */
+.places {
+    width: 100%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* Styles for the title of the places section */
+.places h1 {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 0;
+    flex: 0 1 100%;
+}
+
+/* Styles for each individual place article */
+article {
+    border: 1px solid #ff5a5f;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Overriding justify-content */
+    position: relative;
+    width: 390px;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Styles for the title of each place article */
+article h2 {
+    font-size: 30px;
+    align-self: center;
+    margin: 0;
+}
+
+/* Styles for the price by night section */
+.price_by_night {
+    color: #ff5a5f;
+    border: 4px solid #ff5a5f;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.price_by_night p {
+    margin: 0;
+}
+
+/* Styles for the information section */
+.information {
+    height: 80px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    align-self: center;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for the max_guest, number_rooms, and number_bathrooms sections */
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+    width: 100px;
+    text-align: center;
+}
+
+.max_guest p,
+.number_rooms p,
+.number_bathrooms p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Background image and styles for the guest icon */
+.guest_image,
+.bed_image,
+.bath_image {
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 50px;
+}
+
+.guest_image {
+    background: url("../images/icon_group.png") no-repeat center;
+}
+
+.bed_image {
+    background: url("../images/icon_bed.png") no-repeat center;
+}
+
+.bath_image {
+    background: url("../images/icon_bath.png") no-repeat center;
+}
+
+/* Styles for the user information section */
+.user p {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+/* Styles for the description text */
+.description p {
+    margin-top: 7px;
+    margin-bottom: 0;
+}

@@ -1,0 +1,108 @@
+/* Global styles for the filters */
+.filters {
+	background-color: white;
+	height: 70px;
+	width: 100%;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	text-align: right;
+}
+
+/* Styles for the search button */
+section.filters button {
+	font-size: 18px;
+	background-color: #ff5a5f;
+	color: #ffffff;
+	height: 48px;
+	width: 20%;
+	border: none;
+	border-radius: 4px;
+	margin-right: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Hover effect for the search button */
+section.filters button:hover {
+	opacity: 90%;
+}
+
+/* Styles for the locations and amenities containers */
+.locations,
+.amenities {
+	height: 100%;
+	width: 25%;
+	text-align: left;
+	margin-left: 30px;
+	float: left;
+}
+
+/* Border between locations and amenities */
+.locations {
+	border-right: 1px solid #DDDDDD;
+}
+
+/* Styles for the headings (States, Amenities) */
+.locations h3,
+.amenities h3 {
+	font-weight: 600;
+	padding: 0;
+	margin: 0;
+	margin-top: 25px;
+}
+
+/* Styles for the subheadings (California, Arizona) */
+.locations h4,
+.amenities h4 {
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	margin-top: 1px;
+}
+
+/* Styles for the popover dropdown */
+.popover {
+	display: none;
+	background-color: #FAFAFA;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	z-index: 1;
+	position: relative;
+	left: -30px;
+	margin-top: 10px;
+	padding: 10px 30px 10px 0px;
+}
+
+/* Font size for the state names inside the popover */
+.popover h2 {
+	font-size: 16px;
+}
+
+/* Padding for list items inside the popover */
+.popover li {
+	padding-left: 20px;
+}
+
+/* Show popover on hover */
+.locations:hover .popover,
+.amenities:hover .popover {
+	display: block;
+}
+
+/* Remove margin for h2 elements inside list items */
+.popover li h2 {
+	margin: 0;
+}
+
+/* Remove bullets for list items */
+li {
+	list-style-type: none;
+	padding-bottom: 5%;
+}
+
+/* Remove padding for unordered lists */
+ul {
+	padding: 0;
+}
